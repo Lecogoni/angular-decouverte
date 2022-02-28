@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+
+.sidebar {
+  background-color: cadetblue;
+  border-right: 1px solid grey;
+}
+
+.sidebar::after {
+  position: absolute;
+  content: " ";
+  z-index: -5;
+  width: 16%;
+  height: 92%;
+  left: 6px;
+  top: 12%;
+  box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.8);
+}
+
+footer {
+  background-color: coral;
+  box-shadow: -2px -4px 20px rgba(0,0,0,0.2);
+}
+
+ul.menu {
+  position: relative;
+  width: 100%;
+  list-style-type: none;
+  text-decoration: none;
+  padding: 0;
+}
+
+ul.menu > li {
+  border-bottom: 1px solid grey;
+  padding: 5px 0;
+}
+
+ul.menu > li > a {
+  width: 100%;
+  line-height: 1.4em;
+}

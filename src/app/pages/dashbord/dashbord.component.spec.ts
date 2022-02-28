@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavbarzoneComponent } from './navbarzone.component';
+import { DashbordComponent } from './dashbord.component';
 
-describe('NavbarzoneComponent', () => {
-  let component: NavbarzoneComponent;
-  let fixture: ComponentFixture<NavbarzoneComponent>;
+describe('DashbordComponent', () => {
+  let component: DashbordComponent;
+  let fixture: ComponentFixture<DashbordComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavbarzoneComponent ]
+      declarations: [ DashbordComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavbarzoneComponent);
+    fixture = TestBed.createComponent(DashbordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
