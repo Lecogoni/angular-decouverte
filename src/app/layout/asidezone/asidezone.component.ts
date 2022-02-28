@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-asidezone',
@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AsidezoneComponent implements OnInit {
 
-  constructor() { }
+  componentTitle = "mon Titre en variable";
+
+  zoneTitle = 'aside zone';
+  @Input('data') messages: any;
+  @Input() singleMessage: any;
+
+
+
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  defineZoneTitle() {
+    this.zoneTitle = 'Listes des messages'
   }
 
 }

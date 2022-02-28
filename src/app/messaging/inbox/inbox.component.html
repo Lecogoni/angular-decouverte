@@ -1,0 +1,25 @@
+<hr>
+<p>inbox works!</p>
+
+<p>
+  var de inbox: {{inboxName}}
+</p>
+
+<p>venant du parent : {{ singleMessage.title}} - {{ singleMessage.status}}</p>
+
+<h6>Listes des messsages</h6>
+
+<div class="row">
+  <div class="col-3" *ngFor="let message of messages" #item>
+    <div class="card p-2">
+      <section>
+        <h6>{{ message.title }}</h6>
+        <p>{{ message.status }}</p>
+      </section>
+      <button class="btn btn-danger" (click)="item.remove()">delete</button>
+      <br>
+      <button class="btn btn-danger" (click)="deleteMessage()">log</button>
+    </div>
+  </div>
+</div>
+<br>
