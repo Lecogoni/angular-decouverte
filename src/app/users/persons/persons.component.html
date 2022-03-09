@@ -1,0 +1,8 @@
+<ul class="list-group" *ngFor="let person of persons">
+  <a [routerLink]="['/user']" [state]="{data: person}" [queryParams]="{data: person}"
+    routerLinkActive="router-link-active">
+    <li class="list-group-item"><img [src]="userAvatar" alt="" style="width: 25px; height: 25px; margin-right: 20px">{{
+      person.firstname
+      }}</li>
+  </a>
+</ul>

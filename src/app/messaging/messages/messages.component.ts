@@ -1,58 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { DataMessagesService, Message } from '../services/data-messages.service';
 
-// ici on type la structure de nos msg
-export interface Message {
-  title: string;
-  content: string;
-  sent?: Date;
-  isRead?: boolean;
-}
 
 @Component({
   selector: 'app-messages',
   templateUrl: './messages.component.html',
   styleUrls: ['./messages.component.scss']
 })
+
 export class MessagesComponent implements OnInit {
 
-  messageList = "component messages";
+  messageComponenTtitle: string = "Listes de messages"
 
-  singleMessage: string = 'coucou';
+  @Input() singleMessage: string = 'coucou';
 
-  singleMessage2: Message = {
-    title: "new single message",
-    content: 'read',
-    sent: new Date(),
-    isRead: false
+  @Output() newItemEvent = new EventEmitter();
+
+  addNewItem(value: string) {
+    this.newItemEvent.emit(value);
   }
 
+  messages: Message[] = [];
 
-
-  messages: Message[] = [
-    {
-      title: "Message 1 in list",
-      content: 'read',
-      sent: new Date(),
-      isRead: false
-    },
-    {
-      title: "Message 2 in list",
-      content: 'read',
-      sent: new Date(),
-      isRead: false
-    },
-    {
-      title: "Message 3 in list",
-      content: 'read',
-      sent: new Date(),
-      isRead: false
-    }
-  ]
-
-
-  constructor() { }
+  constructor(private service: DataMessagesService) { }
 
   ngOnInit(): void {
+    this.messages = this.service.getMessages();
   }
 
 
@@ -60,4 +33,15 @@ export class MessagesComponent implements OnInit {
     this.messages[0].title = this.messages[0].title.toUpperCase();
   }
 
+  remove(event: any) {
+    const index: number = this.messages.indexOf(event);
+    this.messages.splice(index, 1);
+  }
+
+  markAsRead(event: any) {
+    const index: number = this.messages.indexOf(event);
+    this.messages[index].isRead = true;
+    console.log(this.messages);
+
+  }
 }

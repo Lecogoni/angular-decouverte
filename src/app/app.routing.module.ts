@@ -1,13 +1,19 @@
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
-import { DashbordComponent } from "./pages/dashbord/dashbord.component";
+import { SingleMessageComponent } from "./messaging/single-message/single-message.component";
+import { WrittingComponent } from "./messaging/writting/writting.component";
+import { DashboardComponent } from "./pages/dashboard/dashboard.component";
 import { MailingComponent } from "./pages/mailing/mailing.component";
+import { UserComponent } from "./pages/user/user.component";
 
 @NgModule({
   imports: [
     RouterModule.forRoot([
-      { path: 'dashboard', component: DashbordComponent },
-      { path: 'mailing', component: MailingComponent }
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'mailing', component: MailingComponent },
+      { path: 'user', component: UserComponent },
+      { path: 'new message', component: WrittingComponent },
+      { path: 'singlemessage/:id', component: SingleMessageComponent }
     ])
   ],
   exports: [

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DataMessagesService, Message } from '../services/data-messages.service';
 
 @Component({
   selector: 'app-inbox',
@@ -7,19 +8,21 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class InboxComponent implements OnInit {
 
+
+
   inboxName = "inbox name";
   @Input() singleMessage: any;
-  @Input() messages: any;
+  messages: Message[] = [];
 
-  constructor() { }
+  constructor(private service: DataMessagesService) { }
 
   ngOnInit(): void {
+    this.messages = this.service.getMessages();
   }
 
   cardMessage = document.getElementsByClassName('card');
 
   deleteMessage() {
     console.log('coucou');
-    console.log(this.cardMessage[0]);
   }
 }

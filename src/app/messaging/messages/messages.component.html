@@ -1,7 +1,8 @@
-<!-- <app-inbox [singleMessage]="singleMessage" [messages]="messages"></app-inbox> -->
-<!-- <app-asidezone [messages]="messages">
-  <app-asidezone> -->
-
-<h3>In the component messages</h3>
-
-j'adore les messages
+<div class="container">
+  <h3>{{ messageComponenTtitle }}</h3>
+  <div class="row">
+    <app-message *ngFor="let message of messages" [data]="message" (delete)="remove($event)"
+      (isRead)="markAsRead($event)">
+    </app-message>
+  </div>
+</div>

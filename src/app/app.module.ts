@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { RoutingModule } from './app.routing.module';
+import { MessagingModule } from './messaging/messaging.module';
 import { PagesModule } from './pages/pages.module';
-
+import { UsersModule } from './users/users.module';
 
 
 @NgModule({
@@ -14,7 +14,9 @@ import { PagesModule } from './pages/pages.module';
   imports: [
     BrowserModule,
     RoutingModule,
-    PagesModule
+    PagesModule,
+    UsersModule,
+    MessagingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,18 +1,35 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col">
+    <div class="col-3">
       <h2>Header</h2>
+    </div>
+    <div class="col-3">
+      <app-notification></app-notification>
     </div>
   </div>
   <div class="row min-vh-100">
     <div class="col-2 sidebar">
       <h2>Sidebar</h2>
       <ul class="menu">
-        <li><a [routerLink]="['/dashboard']" routerLinkActive="router-link-active" href="">dashboard</a></li>
+        <li><a routerLink="/dashboard" routerLinkActive="router-link-active" href="">dashboard</a></li>
         <li><a [routerLink]="['/mailing']" routerLinkActive="router-link-active" href="">mailing</a></li>
-        <li><a href="#">page 3</a></li>
+        <li><a [routerLink]="['/user']" routerLinkActive="router-link-active">user</a></li>
+        <li><a [routerLink]="['/new message']" routerLinkActive="router-link-active">new message</a></li>
       </ul>
+
+      <div>
+        <h5>Users List</h5>
+        <app-persons></app-persons>
+
+      </div>
+
+      <div>
+        <h5>messages List</h5>
+        <app-messages-list></app-messages-list>
+
+      </div>
     </div>
+
     <div class="col-10">
       <h2>content</h2>
       <router-outlet></router-outlet>
